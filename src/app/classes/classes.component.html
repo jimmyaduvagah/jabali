@@ -1,0 +1,52 @@
+<div *ngIf="list">
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col"> Class Name</th>
+      <th scope="col">Class Grade</th>
+      <th scope="col">Description</th>
+      <th scope="col">Students</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let stm of classes; index as i" (click)="showDetail(i)">
+      <td>{{stm.className}}</td>
+      <td>{{stm.classGrade}}</td>
+      <td>{{stm.description}}</td>
+      <td>{{stm.students}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div *ngIf="selectedClass">
+<div class="row g-3">
+<div class="col-md-4">
+  <label for="validationServer01" class="form-label">Class name</label>
+  <input type="text" class="form-control" id="validationServer01"   [(ngModel)]="selectedClass.className"  required>
+  
+</div>
+<div class="col-md-4">
+  <label for="validationServer02" class="form-label">Class Grade</label>
+  <input type="text" class="form-control" id="validationServer02" [(ngModel)]="selectedClass.classGrade" required>
+  
+</div>
+<div class="col-md-4">
+  <label for="validationServer02" class="form-label">Class Description</label>
+  <input type="text" class="form-control" id="validationServer02" [(ngModel)]="selectedClass.description" required>
+  
+</div>
+
+<div class="col-md-6">
+  <label for="validationServer03" class="form-label">StudentS</label>
+  <input type="text" class="form-control" id="validationServer03" [(ngModel)]="selectedClass.students" required>
+
+</div>
+
+<div class="col-12">
+  <button class="btn btn-primary" type="submit">Save</button>
+</div>
+</div>
+</div>

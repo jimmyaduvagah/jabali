@@ -1,0 +1,61 @@
+<div *ngIf="list">
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col"> Teacher Number</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Other Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Gender</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tutor of teachers; index as i" (click)="showDetail(i)">
+      <th scope="row">{{tutor.teacher_number}} </th>
+      <td>{{tutor.firstName}}</td>
+      <td>{{tutor.otherName}}</td>
+      <td>{{tutor.lastName}}</td>
+      <td>{{tutor.gender}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div *ngIf="selectedTeacher">
+<div class="row g-3">
+<div class="col-md-4">
+  <label for="validationServer01" class="form-label">First name</label>
+  <input type="text" class="form-control" id="validationServer01"   [(ngModel)]="selectedTeacher.firstName"  required>
+  
+</div>
+<div class="col-md-4">
+  <label for="validationServer02" class="form-label">Other name</label>
+  <input type="text" class="form-control" id="validationServer02" [(ngModel)]="selectedTeacher.otherName" required>
+  
+</div>
+<div class="col-md-4">
+  <label for="validationServer02" class="form-label">Last name</label>
+  <input type="text" class="form-control" id="validationServer02" [(ngModel)]="selectedTeacher.lastName" required>
+  
+</div>
+
+<div class="col-md-6">
+  <label for="validationServer03" class="form-label">Teacher Number</label>
+  <input type="text" class="form-control" id="validationServer03" [(ngModel)]="selectedTeacher.teacher_number" required>
+
+</div>
+<div class="col-md-3">
+  <label for="validationServer04" class="form-label">Gender</label>
+  <select class="form-select is-invalid" id="validationServer04" [(ngModel)]="selectedTeacher.gender" required>
+    <option selected disabled value="">Male</option>
+    <option>Male</option>
+    <option>Female</option>
+  </select>
+</div>
+
+<div class="col-12">
+  <button class="btn btn-primary" type="submit">Save</button>
+</div>
+</div>
+</div>
